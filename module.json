@@ -3,7 +3,7 @@
     "title": "Better Hexagonal Tiles",
     "description": "Adjusts the positioning of tiles to appear better with hexagonal grids",
     "author": "hitcherland",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "minimumCoreVersion": "0.7.8",
     "compatibleCoreVersion": "0.8.6",
     "esmodules": [
@@ -11,6 +11,6 @@
     ],
     "url": "https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles",
     "manifest": "https://raw.githubusercontent.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/master/module.json",
-    "download": "https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/archive/refs/tags/0.1.0.zip",
+    "download": "https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/archive/refs/tags/0.1.1.zip",
     "readme": "https://raw.githubusercontent.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/master/README.md"
 }
