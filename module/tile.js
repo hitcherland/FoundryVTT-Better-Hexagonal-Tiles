@@ -1,4 +1,4 @@
-export class ImprovedTile extends Tile {
+export class BHTTile extends Tile {
 
     _getTileOffset() {
         const aw = Math.abs(this.data.width);
