@@ -3,7 +3,7 @@
 This is a simple module for FoundryVTT that adjusts the rendering position of Tiles on hexagonal grids.
 
 Most hexagonal assets come centered inside of a square image, for example:
-![A Hexagon Centered Inside of a Square Image](https://i.imgur.com/HK2qImc.png)
+![A Hexagon Centered Inside of a Square Image](https://i.imgur.com/HK2qImc.png | width=256)
 
 FoundryVTT's Tile renders assumes that the hexagon is as close to the top left of the image as possible. This makes it look like FoundryVTT isn't snapping Tiles to a hexagonal grid correctly.
 
