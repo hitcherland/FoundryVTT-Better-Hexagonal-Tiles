@@ -3,7 +3,7 @@
     "title": "Better Hexagonal Tiles",
     "description": "Adjusts the positioning of tiles to appear better with hexagonal grids",
     "authors": [{"name": "hitcherland"}],
-    "version": "1.2",
+    "version": "1.3",
     "compatability": {
         "minimum": 9,
         "verified": 10
