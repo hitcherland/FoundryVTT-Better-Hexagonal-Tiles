@@ -2,11 +2,16 @@
     "id": "better-hexagonal-tiles",
     "title": "Better Hexagonal Tiles",
     "description": "Adjusts the positioning of tiles to appear better with hexagonal grids",
-    "authors": [{"name": "hitcherland"}],
-    "version": "1.4",
-    "compatability": {
-        "minimum": 9,
-        "verified": 10
+    "version": "1.5",
+    "authors": [
+        {
+            "name": "hitcherland"
+        }
+    ],
+    "compatibility": {
+        "minimum": 11,
+        "verified": "11",
+        "maximum": "11"
     },
     "esmodules": [
         "module/better-hexagonal-tiles.js"

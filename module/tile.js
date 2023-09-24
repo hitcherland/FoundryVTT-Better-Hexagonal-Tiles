@@ -1,8 +1,15 @@
 export class BHTTile extends Tile {
-    _refresh(options) {
-        super._refresh(options);
-        if ( this.mesh && game.canvas.grid.isHex ) {
-            this.mesh.position.set(this.document.x + canvas.grid.grid.w / 2, this.document.y + canvas.grid.grid.h / 2);
-        }
+    #customRefresh() {
+        if(!game.canvas.grid.isHex) return;
+        const m = this.mesh.position;
+        let {x, y} = m;
+        let {w, h} = canvas.grid.grid;
+        let {width, height} = this.mesh;
+        m.set(x + w / 2 - width / 2, y + h / 2 - height / 2);
+    }
+
+    _applyRenderFlags(flags) {
+        super._applyRenderFlags(flags);
+        this.#customRefresh();
     }
 }
