@@ -5,7 +5,14 @@ export class BHTTile extends Tile {
         let {x, y} = m;
         let {w, h} = canvas.grid.grid;
         let {width, height} = this.mesh;
-        m.set(x + w / 2 - width / 2, y + h / 2 - height / 2);
+
+        // due to the way tiles are defined in foundry,
+        // width & height are integers, but w & h are floats
+        // this causes some unexpected offsetting unless we round down
+        let X = Math.floor(x + (w - width) / 2);
+        let Y = Math.floor(y + (h - height) / 2);
+
+        m.set(X, Y);
     }
 
     _applyRenderFlags(flags) {

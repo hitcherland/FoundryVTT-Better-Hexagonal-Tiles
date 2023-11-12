@@ -2,7 +2,7 @@
     "id": "better-hexagonal-tiles",
     "title": "Better Hexagonal Tiles",
     "description": "Adjusts the positioning of tiles to appear better with hexagonal grids",
-    "version": "1.5",
+    "version": "1.6",
     "authors": [
         {
             "name": "hitcherland"
