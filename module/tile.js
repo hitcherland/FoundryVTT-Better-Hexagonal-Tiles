@@ -1,22 +1,29 @@
+
 export class BHTTile extends Tile {
-    #customRefresh() {
-        if(!game.canvas.grid.isHex) return;
-        const m = this.mesh.position;
-        let {x, y} = m;
-        let {w, h} = canvas.grid.grid;
-        let {width, height} = this.mesh;
+    // Adjust tiles don't fit the normal layout
+    getSnappedPosition(position) {
+        // first, update the input position so that we're dragging the center
+        // and we don't see any weird jumps
+        let size = Math.max(canvas.grid.sizeX, canvas.grid.sizeY);
+        let dx = (size - this.mesh.width) / 2;
+        let dy = (size - this.mesh.height) / 2;
+        position.x -= dx;
+        position.y -= dy
 
-        // due to the way tiles are defined in foundry,
-        // width & height are integers, but w & h are floats
-        // this causes some unexpected offsetting unless we round down
-        let X = Math.floor(x + (w - width) / 2);
-        let Y = Math.floor(y + (h - height) / 2);
-
-        m.set(X, Y);
+        // then update the default snapped position by the same amount
+        let p = super.getSnappedPosition(position);
+        p.x += dx;
+        p.y += dy;
+        return p;
     }
+}
 
-    _applyRenderFlags(flags) {
-        super._applyRenderFlags(flags);
-        this.#customRefresh();
+export class BHTTilesLayer extends TilesLayer {
+    // Adjust the vertex position to be "aligned" better with a normal hexagonal image
+    getSnappedPoint(point) {
+        let p = super.getSnappedPoint(point);
+        p.y -= (canvas.grid.sizeX - canvas.grid.size) / 2;
+        p.x -= (canvas.grid.sizeY - canvas.grid.size) / 2;
+        return p;
     }
 }
