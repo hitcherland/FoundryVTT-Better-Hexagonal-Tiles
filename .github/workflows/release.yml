@@ -14,11 +14,8 @@ jobs:
       - name: Parse module.json
         id: module 
         run: |
-          {
-            echo 'module<<EOF'
-            cat ./module.json
-            echo EOF
-          } >> "$GITHUB_OUTPUT"
+          module="$(cat ./module.json)"
+          echo module=$module >> "${GITHUB_OUTPUT}"
       - name: Zip files
         run: zip -r ./better-hexagonal-tiles.zip ./module ./module.json ./README.md
       - name: Create Release
