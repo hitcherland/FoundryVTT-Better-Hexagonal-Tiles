@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Parse module.json
-        id: module 
+        id: module
         run: |
           module="$(cat ./module.json)"
           echo module=$module >> "${GITHUB_OUTPUT}"
@@ -25,4 +25,4 @@ jobs:
           tag: ${{ fromJson(steps.module.outputs.module).version }}
           skipIfReleaseExists: true
       - name: Update FoundryVTT
-        run: python ./push-to-foundryvtt.py --release-token="${{ secrets.RELEASE_TOKEN }}"
+        run: python ./push-to-foundryvtt.py --release-token='${{ secrets.RELEASE_TOKEN }}'
