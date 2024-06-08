@@ -11,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Zip files
-        run: zip -r ./better-hexagonal-tiles.zip ./module ./module.json ./README.md
       - name: Parse module.json
-        id: module
+        id: module 
         run: |
           {
             echo 'module<<EOF'
             cat ./module.json
             echo EOF
           } >> "$GITHUB_OUTPUT"
+      - name: Zip files
+        run: zip -r ./better-hexagonal-tiles.zip ./module ./module.json ./README.md
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
