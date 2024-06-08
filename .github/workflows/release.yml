@@ -13,14 +13,16 @@ jobs:
       - uses: actions/checkout@v3
       - name: Zip files
         run: zip -r ./better-hexagonal-tiles.zip ./module ./module.json ./README.md
-      - name: get version
-        id: get_module
-        run: content=`cat ./module.json`
-          echo "::set-output name=module::$content"
+      - name: Parse module.json
+        id: module
+        run: |
+          echo 'MODULE_JSON<<EOF' >> $GITHUB_ENV
+          cat ./module.json >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           artifacts: "./module.json,./better-hexagonal-tiles.zip"
-          tag: ${{ fromJson( steps.get_module.outputs.module ).version }}
+          tag: ${{ fromJson(env.MODULE_JSON).version }}
       - name: Update FoundryVTT
         run: python ./push-to-foundryvtt.py --release_version="${{ secrets.release_token }}"
