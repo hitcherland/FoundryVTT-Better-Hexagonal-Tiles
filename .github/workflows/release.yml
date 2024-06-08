@@ -18,7 +18,7 @@ jobs:
         run: content=`cat ./module.json`
           echo "::set-output name=module::$content"
       - name: Create Release
-        uses: ncipollo/release-action@v
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "./module.json,./better-hexagonal-tiles.zip"
           tag: ${{ fromJson( steps.get_module.outputs.module ).version }}
