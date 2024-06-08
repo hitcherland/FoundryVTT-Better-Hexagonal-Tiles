@@ -23,5 +23,6 @@ jobs:
         with:
           artifacts: "./module.json,./better-hexagonal-tiles.zip"
           tag: ${{ fromJson(steps.module.outputs.module).version }}
+          skipIfReleaseExists: true
       - name: Update FoundryVTT
         run: python ./push-to-foundryvtt.py --release_version="${{ secrets.release_token }}"
