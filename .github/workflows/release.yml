@@ -25,4 +25,4 @@ jobs:
           tag: ${{ fromJson(steps.module.outputs.module).version }}
           skipIfReleaseExists: true
       - name: Update FoundryVTT
-        run: python ./push-to-foundryvtt.py --release_version="${{ secrets.release_token }}"
+        run: python ./push-to-foundryvtt.py --release-token="${{ secrets.release_token }}"
