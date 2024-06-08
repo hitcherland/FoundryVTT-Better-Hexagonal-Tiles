@@ -58,7 +58,6 @@ def push_to_foundryvtt(module: dict, release_token: str, dry_run: False) -> bool
 
 def main(args: list[str]) -> int:
     args = parser.parse_args()
-    print(args)
 
     with open("module.json") as f:
         module = json.loads(f.read())
