@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is creating a new release
 on:
   workflow_dispatch:
     secrets:
-      release_token:
+      RELEASE_TOKEN:
         description: "The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit"
         required: true
 jobs:
@@ -25,4 +25,4 @@ jobs:
           tag: ${{ fromJson(steps.module.outputs.module).version }}
           skipIfReleaseExists: true
       - name: Update FoundryVTT
-        run: python ./push-to-foundryvtt.py --release-token="${{ secrets.release_token }}"
+        run: python ./push-to-foundryvtt.py --release-token="${{ secrets.RELEASE_TOKEN }}"
