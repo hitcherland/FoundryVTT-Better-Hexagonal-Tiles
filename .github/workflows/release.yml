@@ -6,8 +6,16 @@ on:
       RELEASE_TOKEN:
         description: "The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit"
         required: true
+  push:
+    paths:
+      - 'module.json'
+  workflow_call:
+    secrets:
+      RELEASE_TOKEN:
+        description: "The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit"
+        required: true
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
