@@ -16,13 +16,15 @@ jobs:
       - name: Parse module.json
         id: module
         run: |
-          echo 'module<<EOF' >> "$GITHUB_ENV"
-          cat ./module.json >> "$GITHUB_ENV"
-          echo 'EOF' >> "$GITHUB_ENV"
+          {
+            echo 'module<<EOF'
+            cat ./module.json
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           artifacts: "./module.json,./better-hexagonal-tiles.zip"
-          tag: ${{ fromJson(env.module).version }}
+          tag: ${{ fromJson(steps.module.outputs.module).version }}
       - name: Update FoundryVTT
         run: python ./push-to-foundryvtt.py --release_version="${{ secrets.release_token }}"
