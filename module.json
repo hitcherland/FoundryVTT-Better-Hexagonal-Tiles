@@ -10,14 +10,14 @@
     ],
     "compatibility": {
         "minimum": 12,
-        "verified": "12",
-        "maximum": "12"
+        "verified": 12,
+        "maximum": 12
     },
     "esmodules": [
         "module/better-hexagonal-tiles.js"
     ],
     "url": "https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles",
     "manifest": "https://raw.githubusercontent.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/master/module.json",
-    "download": "https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/archive/refs/tags/1.7.zip",
+    "download": "https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/archive/refs/tags/1.7/better-hexagonal-tiles.zip",
     "readme": "https://raw.githubusercontent.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/master/README.md"
 }
