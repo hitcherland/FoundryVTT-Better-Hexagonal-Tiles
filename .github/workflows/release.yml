@@ -1,25 +1,25 @@
 name: Release
-run-name: ${{ github.actor }} building a new release
+run-name: ${{ github.actor }} is creating a new release
 on:
-  workflow_call:
+  workflow_dispatch:
     secrets:
       release_token:
-        description: 'The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit'
+        description: "The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit"
         required: true
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v3
       - name: Zip files
         run: zip -r ./better-hexagonal-tiles.zip ./module ./module.json ./README.md
       - name: get version
         id: get_module
         run: content=`cat ./module.json`
-            echo "::set-output name=module::$content"
+          echo "::set-output name=module::$content"
       - name: Create Release
         uses: ncipollo/release-action@v
-        with: 
+        with:
           artifacts: "./module.json,./better-hexagonal-tiles.zip"
           tag: ${{ fromJson( steps.get_module.outputs.module ).version }}
       - name: Update FoundryVTT
