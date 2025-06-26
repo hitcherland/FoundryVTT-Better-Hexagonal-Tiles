@@ -1,5 +1,5 @@
 
-export class BHTTile extends Tile {
+export class BHTTile extends foundry.canvas.placeables.Tile {
     // Adjust tiles don't fit the normal layout
     getSnappedPosition(position) {
         // first, update the input position so that we're dragging the center
@@ -18,7 +18,7 @@ export class BHTTile extends Tile {
     }
 }
 
-export class BHTTilesLayer extends TilesLayer {
+export class BHTTilesLayer extends foundry.canvas.layers.TilesLayer {
     // Adjust the vertex position to be "aligned" better with a normal hexagonal image
     getSnappedPoint(point) {
         let p = super.getSnappedPoint(point);
