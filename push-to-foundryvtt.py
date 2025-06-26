@@ -24,7 +24,7 @@ def push_to_foundryvtt(module: dict, release_token: str, dry_run: False) -> bool
             "dry-run": dry_run,
             "release": {
                 "version": module["version"],
-                "manifest": f"https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/archive/refs/tags/{module['version']}/better-hexagonal-tiles.zip",
+                "manifest": f"https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/archive/refs/tags/{module['version']}/module.json",
                 "notes": f"https://github.com/hitcherland/FoundryVTT-Better-Hexagonal-Tiles/releases/tag/1{module['version']}",
                 "compatibility": module["compatibility"],
             },
