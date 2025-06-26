@@ -2,18 +2,9 @@ name: Release
 run-name: ${{ github.actor }} is creating a new release
 on:
   workflow_dispatch:
-    secrets:
-      RELEASE_TOKEN:
-        description: "The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit"
-        required: true
   push:
     paths:
       - 'module.json'
-  workflow_call:
-    secrets:
-      RELEASE_TOKEN:
-        description: "The release token for this package, which you find at https://foundryvtt.com/packages/better-hexagonal-tiles/edit"
-        required: true
 jobs:
   release:
     runs-on: ubuntu-latest
